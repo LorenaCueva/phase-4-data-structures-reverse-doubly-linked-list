@@ -9,6 +9,18 @@ class LinkedList
   end
 
   def reverse!
-    # your code here
+    return if @head == @tail
+
+    temp = @head
+    back = nil
+    @tail = @head
+    
+    while temp != nil
+      @head = temp
+      temp = temp.next_node
+      @head.prev_node = temp
+      @head.next_node = back
+      back = @head
+    end
   end
 end
